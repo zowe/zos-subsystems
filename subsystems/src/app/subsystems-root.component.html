@@ -1,0 +1,82 @@
+
+
+<!-- 
+  This program and the accompanying materials are
+  made available under the terms of the Eclipse Public License v2.0 which accompanies
+  this distribution, and is available at https://www.eclipse.org/legal/epl-v20.html
+  
+  SPDX-License-Identifier: EPL-2.0
+  
+  Copyright Contributors to the Zowe Project.
+-->
+
+<nav *ngIf="state!='loading' && state!='error'" class="navbar navbar-default">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarContent" aria-expanded="false">
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">&nbsp;</a>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarContent">
+    <ul class="nav navbar-nav">
+      <li class="active">
+        <ol class="breadcrumb">
+          <li class="active" *ngFor="let breadcrumb of breadcrumbs; let num = index">
+            <a *ngIf="num != breadcrumbs.length-1" href (click)="setBreadcrumb(num); false;">
+              {{breadcrumb}}
+            </a>
+            <span *ngIf="num == breadcrumbs.length-1" class="breadcrumb-last">{{breadcrumb}}</span>
+          </li>
+        </ol>
+      </li>
+    </ul>
+    <form [formGroup]="superSearchForm" (ngSubmit)="superSearch()" class="navbar-form navbar-right">
+      <input [formControl]="superSearchInput"
+          [class.super-search-error]="superSearchError" [title]="superSearchTitle"
+          class="form-control mr-sm-2 super-search-input" type="text" placeholder="Super Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<div class="containter-fluid root">
+  <div class="row" *ngIf="state=='loading' || state=='error'" >
+    <div class="col-sm-12 state-loading-error">
+      <span *ngIf="state=='loading'">
+        Loading {{rootBreadCrumb}} ...
+      </span>
+      <span *ngIf="state=='error'" class="state-error">{{errorMessage}}</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <!-- Top level list of subsytems -->
+      <ng2-subsystems *ngIf="state=='subsystems'"
+        [subsystems]="subsystems"
+        (subsystemName)="setSubsystemName($event, '')"
+      ></ng2-subsystems>
+
+      <!-- A subsystem was selected, e.g., CICS, DB2, IMS, MQ -->
+      <ng2-subsystem *ngIf="state=='subsystem'"
+        [subsystemInput]="subsystemItemAction"
+        (subsystemOutput)="setSubsystemItemAction($event)"
+      ></ng2-subsystem>
+
+      <!-- For a selected subsystem an action/drilldown was selected, e.g.,  CICS > Databases -->
+      <ng2-subsystem-action *ngIf="state=='action'"
+        [subsystemItemAction]="subsystemItemAction"
+        [scope]="scope"
+      ></ng2-subsystem-action>
+    </div>
+  </div>
+</div>
+
+<!-- 
+  This program and the accompanying materials are
+  made available under the terms of the Eclipse Public License v2.0 which accompanies
+  this distribution, and is available at https://www.eclipse.org/legal/epl-v20.html
+  
+  SPDX-License-Identifier: EPL-2.0
+  
+  Copyright Contributors to the Zowe Project.
+-->
+

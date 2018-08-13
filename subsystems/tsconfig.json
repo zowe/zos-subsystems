@@ -1,0 +1,9 @@
+{
+  "extends": "../../zlux-app-manager/virtual-desktop/plugin-config/tsconfig.base.json",
+  "include": [
+    "src/**/*.ts"
+  ],
+  "compilerOptions": {
+    "skipLibCheck": true
+  }
+}

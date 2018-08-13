@@ -1,0 +1,59 @@
+
+
+<!-- 
+  This program and the accompanying materials are
+  made available under the terms of the Eclipse Public License v2.0 which accompanies
+  this distribution, and is available at https://www.eclipse.org/legal/epl-v20.html
+  
+  SPDX-License-Identifier: EPL-2.0
+  
+  Copyright Contributors to the Zowe Project.
+-->
+
+<div class="row search-row">
+  <div class="col-sm-12">
+    <form [formGroup]="searchForm" class="form-inline my-2 my-lg-0">
+      <input [formControl]="searchInput" class="form-control mr-sm-2" type="text" placeholder="Search">
+      <span *ngIf="searchRows.length!==1" class="search-count">
+        <b>{{searchRows.length}} </b>rows
+      </span>
+      <span *ngIf="searchRows.length===1" class="search-count">
+        <b>{{searchRows.length}} </b>row
+      </span>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <table class="table table-striped table-bordered table-condensed">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th *ngFor="let action of actions" class="table-count" style="width:10%">
+          {{action.display}}
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of searchRows; let rowIndex = index;">
+          <td>{{item.name}}</td>
+          <td *ngFor="let action of actions; let actionIndex = index;" class="table-count">
+            <a href (click)="setAction(item, action); false;">{{getCount(rowIndex, actionIndex)}}</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- 
+  This program and the accompanying materials are
+  made available under the terms of the Eclipse Public License v2.0 which accompanies
+  this distribution, and is available at https://www.eclipse.org/legal/epl-v20.html
+  
+  SPDX-License-Identifier: EPL-2.0
+  
+  Copyright Contributors to the Zowe Project.
+-->
+
