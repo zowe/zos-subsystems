@@ -1,5 +1,5 @@
 {
-  "name": "com.rs.zossystem.subsystems",
+  "name": "org.zowe.zossubsystems",
   "version": "0.9.0",
   "scripts": {
     "start": "webpack --progress --colors --watch",
