@@ -41,7 +41,7 @@
 <div class="container-fluid root">
   <div class="row" *ngIf="state=='loading' || state=='error'" >
     <div class="col-sm-12 state-loading-error">
-      <span *ngIf="state=='loading'" i18n="loading message|Text of Loading message@@loading-message">
+      <span *ngIf="state=='loading'" i18n="loading message|Text of Loading message@@subsystems-loading-message">
         Loading {{rootBreadCrumb}} ...
       </span>
       <span *ngIf="state=='error'" class="state-error">{{errorMessage}}</span>

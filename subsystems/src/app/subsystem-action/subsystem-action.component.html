@@ -12,7 +12,7 @@
 
 <div class="row" *ngIf="state=='loading' || state=='error'" >
   <div class="col-sm-12 state-loading-error">
-    <span *ngIf="state=='loading'" i18n="message|Loading message@@loading-message">
+    <span *ngIf="state=='loading'" i18n="message|Loading message@@subsystem-loading-message">
       Loading {{subsystemItemAction.subsystemName}} &gt; {{subsystemItemAction.getItemName()}} &gt; {{subsystemItemAction.action.display}} ...
     </span>
     <span *ngIf="state=='error'" class="state-error">{{errorMessage}}</span>
