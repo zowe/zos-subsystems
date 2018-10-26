@@ -13,7 +13,7 @@
 <div class="row search-row">
   <div class="col-sm-12">
     <form [formGroup]="searchForm" class="form-inline my-2 my-lg-0">
-      <input [formControl]="searchInput" class="form-control mr-sm-2" type="text" placeholder="Search">
+      <input [formControl]="searchInput" class="form-control mr-sm-2" type="text" placeholder="Search" i18n-placeholder="search placeholder|Placeholder for Seach input@@search-placeholder">
       <span class="search-count" i18n="message|Message that shows row count@@row-count-message">
         {searchRows.length, plural, =0 {no rows} =1 {one row} other {{{searchRows.length}} rows}}
       </span>
