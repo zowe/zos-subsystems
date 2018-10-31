@@ -16,8 +16,7 @@
         </context-group>
         <note priority="1" from="description">Title of Search button</note>
         <note priority="1" from="meaning">button title</note>
-      </trans-unit>
-      <trans-unit id="subsystems-loading-message" datatype="html">
+      </trans-unit><trans-unit id="subsystems-loading-message" datatype="html">
         <source>
         Loading <x id="INTERPOLATION" equiv-text="{{rootBreadCrumb}}"/> ...
       </source><target state="new">
@@ -30,6 +29,7 @@
         <note priority="1" from="description">Text of Loading message</note>
         <note priority="1" from="meaning">loading message</note>
       </trans-unit>
+
       <trans-unit id="type-column-header" datatype="html">
         <source>Type</source><target state="new">Type</target>
         <context-group purpose="location">
@@ -72,28 +72,16 @@
       </source><target state="new">
         <x id="ICU" equiv-text="{searchRows.length, plural, =0 {...} =1 {...} other {...}}"/>
       </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/subsystem/subsystem.component.ts</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/subsystem-action/subsystem-action.component.ts</context>
-          <context context-type="linenumber">25</context>
-        </context-group>
+
+
         <note priority="1" from="description">Message that shows row count</note>
         <note priority="1" from="meaning">message</note>
-      </trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/subsystem/subsystem.component.ts</context><context context-type="linenumber">17</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/subsystem-action/subsystem-action.component.ts</context><context context-type="linenumber">25</context></context-group></trans-unit>
       <trans-unit id="eea37ce062e1158611b11dc8a1784488339ccc25" datatype="html">
         <source>{VAR_PLURAL, plural, =0 {no rows} =1 {one row} other {<x id="INTERPOLATION" equiv-text="{{searchRows.length}}"/> rows} }</source><target state="new">{VAR_PLURAL, plural, =0 {pas de lignes} =1 {une ligne} other {<x id="INTERPOLATION" equiv-text="{{searchRows.length}}"/> lignes} }</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/subsystem/subsystem.component.ts</context>
-          <context context-type="linenumber">18</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/subsystem-action/subsystem-action.component.ts</context>
-          <context context-type="linenumber">26</context>
-        </context-group>
-      </trans-unit>
+
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/subsystem/subsystem.component.ts</context><context context-type="linenumber">18</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/subsystem-action/subsystem-action.component.ts</context><context context-type="linenumber">26</context></context-group></trans-unit>
       <trans-unit id="name-column-header" datatype="html">
         <source>Name</source><target state="new">Nom</target>
         <context-group purpose="location">
@@ -102,8 +90,7 @@
         </context-group>
         <note priority="1" from="description">Header of Name column</note>
         <note priority="1" from="meaning">column-header</note>
-      </trans-unit>
-      <trans-unit id="subsystem-loading-message" datatype="html">
+      </trans-unit><trans-unit id="subsystem-loading-message" datatype="html">
         <source>
       Loading <x id="INTERPOLATION" equiv-text="{{subsystemItemAction.subsystemName}}"/> > <x id="INTERPOLATION_1" equiv-text="{{subsystemItemAction.getItemName()}}"/> > <x id="INTERPOLATION_2" equiv-text="{{subsystemItemAction.action.display}}"/> ...
     </source><target state="new">
@@ -115,7 +102,53 @@
         </context-group>
         <note priority="1" from="description">Loading message</note>
         <note priority="1" from="meaning">message</note>
-      </trans-unit>
+      </trans-unit><trans-unit id="subsystem-types-text" datatype="html">
+        <source>Subsystem Types</source><target state="new">Types de sous-systèmes</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/subsystem-action-text/subsystem-action-text.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">Subsystem Types text</note>
+        <note priority="1" from="meaning">text</note>
+      </trans-unit><trans-unit id="files-text" datatype="html">
+        <source>Files</source><target state="new">Fichiers</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/subsystem-action-text/subsystem-action-text.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <note priority="1" from="description">Files text</note>
+        <note priority="1" from="meaning">text</note>
+      </trans-unit><trans-unit id="programs-text" datatype="html">
+        <source>Programs</source><target state="new">Programmes</target>
+
+
+
+        <note priority="1" from="description">Programs text</note>
+        <note priority="1" from="meaning">text</note>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/subsystem-action-text/subsystem-action-text.component.ts</context><context context-type="linenumber">16</context></context-group></trans-unit><trans-unit id="transactions-text" datatype="html">
+        <source>Transactions</source><target state="new">Transactions</target>
+
+
+        <note priority="1" from="description">Transactions text</note>
+        <note priority="1" from="meaning">text</note>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/subsystem-action-text/subsystem-action-text.component.ts</context><context context-type="linenumber">17</context></context-group></trans-unit><trans-unit id="databases-text" datatype="html">
+        <source>Databases</source><target state="new">Bases de données</target>
+
+
+        <note priority="1" from="description">Databases text</note>
+        <note priority="1" from="meaning">text</note>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/subsystem-action-text/subsystem-action-text.component.ts</context><context context-type="linenumber">18</context></context-group></trans-unit><trans-unit id="Configuration-text" datatype="html">
+        <source>Configuration</source><target state="new">Configuration</target>
+
+        <note priority="1" from="description">configuration text</note>
+        <note priority="1" from="meaning">text</note>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/subsystem-action-text/subsystem-action-text.component.ts</context><context context-type="linenumber">19</context></context-group></trans-unit><trans-unit id="routing-codes-text" datatype="html">
+        <source>Routing Codes</source><target state="new">Codes de routage</target>
+
+        <note priority="1" from="description">Routing Codes text</note>
+        <note priority="1" from="meaning">text</note>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/subsystem-action-text/subsystem-action-text.component.ts</context><context context-type="linenumber">20</context></context-group></trans-unit>
+
     </body>
   </file>
 </xliff>

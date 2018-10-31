@@ -27,7 +27,7 @@
       <tr>
         <th i18n="column-header|Header of Name column@@name-column-header">Name</th>
         <th *ngFor="let action of actions" class="table-count" style="width:10%">
-          {{action.display}}
+          <subsystem-action-text [subsystemAction]="action"></subsystem-action-text>
         </th>
       </tr>
       </thead>

@@ -1,5 +1,3 @@
-
-
 /*
   This program and the accompanying materials are
   made available under the terms of the Eclipse Public License v2.0 which accompanies
@@ -10,44 +8,15 @@
   Copyright Contributors to the Zowe Project.
 */
 
-span, a, a:hover {
-  padding: 0;
-}
+import {Component, Input} from '@angular/core';
+import { SubsystemAction } from '../services/subsystem-actions.service';
 
-.root {
-  margin: 0 10px 0 10px;
-}
-
-.breadcrumb {
-  padding: 15px 0 0 0;
-  background: inherit;
-}
-
-.breadcrumb > li {
-  margin: 0 3px;
-}
-
-.breadcrumb>li+li:before {
-  color: black;
-}
-
-.breadcrumb-last {
-  font-weight: bold;
-  color: black;
-}
-
-.navbar {
-  background: lightgray;
-  border: 0;
-  padding-top: 4px;
-}
-
-.super-search-input {
-  width: 30em;
-}
-
-.super-search-error {
-  border: 1px solid red;
+@Component({
+  selector: 'subsystem-action-text',
+  templateUrl: 'subsystem-action-text.component.html'
+})
+export class SubsystemActionTextComponent {
+  @Input() subsystemAction: SubsystemAction;
 }
 
 /*

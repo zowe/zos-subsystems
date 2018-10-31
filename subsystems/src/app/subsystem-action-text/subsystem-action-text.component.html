@@ -1,0 +1,33 @@
+
+
+<!--
+  This program and the accompanying materials are
+  made available under the terms of the Eclipse Public License v2.0 which accompanies
+  this distribution, and is available at https://www.eclipse.org/legal/epl-v20.html
+
+  SPDX-License-Identifier: EPL-2.0
+
+  Copyright Contributors to the Zowe Project.
+-->
+
+<ng-container [ngSwitch]="subsystemAction.display">
+  <ng-container *ngSwitchCase="'Subsystem Types'" i18n="text|Subsystem Types text@@subsystem-types-text">Subsystem Types</ng-container>
+  <ng-container *ngSwitchCase="'Files'" i18n="text|Files text@@files-text">Files</ng-container>
+  <ng-container *ngSwitchCase="'Programs'" i18n="text|Programs text@@programs-text">Programs</ng-container>
+  <ng-container *ngSwitchCase="'Transactions'" i18n="text|Transactions text@@transactions-text">Transactions</ng-container>
+  <ng-container *ngSwitchCase="'Databases'" i18n="text|Databases text@@databases-text">Databases</ng-container>
+  <ng-container *ngSwitchCase="'Configuration'" i18n="text|configuration text@@Configuration-text">Configuration</ng-container>
+  <ng-container *ngSwitchCase="'Routing Codes'" i18n="text|Routing Codes text@@routing-codes-text">Routing Codes</ng-container>
+  <ng-container *ngSwitchDefault>{{subsystemItemAction.display}}</ng-container>
+</ng-container>
+
+<!--
+  This program and the accompanying materials are
+  made available under the terms of the Eclipse Public License v2.0 which accompanies
+  this distribution, and is available at https://www.eclipse.org/legal/epl-v20.html
+
+  SPDX-License-Identifier: EPL-2.0
+
+  Copyright Contributors to the Zowe Project.
+-->
+
