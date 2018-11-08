@@ -34,7 +34,8 @@ export class DiscoveryTableService extends XhrBase<DiscoveryTable> {
     // With current uriBroker API we'd *like* to use pluginRESTUri, but it doesn't support
     // importing from another plugin yet. It should be:
     // this.url = ZoweZLUX.uriBroker.pluginRESTUri(pluginDefinition.getBasePlugin(),"/zosDiscovery/naive");
-    this.url = "/ZLUX/plugins/com.rs.zossystem.subsystems/services/data/zosDiscovery/naive";
+    this.url = "/ZLUX/plugins/com.rs.zossystem.subsystems/services/data/_current"
+        + "/zosDiscovery/naive";
   }
 
   getAll(getOptions: GetOptions): Observable<DiscoveryTable> {

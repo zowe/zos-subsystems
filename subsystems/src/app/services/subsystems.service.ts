@@ -19,7 +19,8 @@ import {XhrBase} from './xhr-base';
 
 @Injectable()
 export class SubsystemsService extends XhrBase<Subsystems> {
-  private url: string = '/ZLUX/plugins/com.rs.zossystem.subsystems/services/data/zosDiscovery/naive/subsystems';
+  private url: string = '/ZLUX/plugins/com.rs.zossystem.subsystems/services'
+      + '/data/_current/zosDiscovery/naive/subsystems';
 
   constructor(public http: Http) {
     super(http);
