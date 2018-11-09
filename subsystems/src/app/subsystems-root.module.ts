@@ -10,12 +10,13 @@
   Copyright Contributors to the Zowe Project.
 */
 
-import {NgModule} from '@angular/core';
+import {NgModule, Inject} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HttpModule} from '@angular/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 // Services
+import {L10nConfigService} from './services/l10n-config.service';
 import {PluginService1} from './services/plugin.service';
 import {SubsystemsService} from './services/subsystems.service';
 import {DiscoveryTableService} from './services/discovery-table.service';
@@ -26,6 +27,7 @@ import {SubsystemComponent} from './subsystem/subsystem.component';
 import {SubsystemActionComponent} from './subsystem-action/subsystem-action.component';
 import {SubsystemActionsService} from './services/subsystem-actions.service';
 import {SubsystemActionTextComponent} from './subsystem-action-text/subsystem-action-text.component';
+import { TranslationModule, ISOCode, L10nLoader, LOCALE_CONFIG, TRANSLATION_CONFIG, LocaleConfig, TranslationConfig } from 'angular-l10n';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import {SubsystemActionTextComponent} from './subsystem-action-text/subsystem-ac
     SubsystemActionComponent
   ],
   providers: [
+    L10nConfigService,
     PluginService1,
     DiscoveryTableService,
     SubsystemsService,
@@ -50,6 +53,12 @@ import {SubsystemActionTextComponent} from './subsystem-action-text/subsystem-ac
   imports: [
     CommonModule,
     HttpModule,
+    TranslationModule.forChild({
+      translation: {
+        providers: [],
+        composedLanguage: [ISOCode.Language, ISOCode.Country],
+      }}
+    ),
     FormsModule,
     ReactiveFormsModule
   ],
@@ -57,7 +66,18 @@ import {SubsystemActionTextComponent} from './subsystem-action-text/subsystem-ac
     SubsystemsRootComponent
   ]
 })
-export class SubsystemsRootModule {}
+export class SubsystemsRootModule {
+  constructor(
+    private l10nLoader: L10nLoader,
+    @Inject(LOCALE_CONFIG) private localeConfig: LocaleConfig,
+    @Inject(TRANSLATION_CONFIG) private translationConfig: TranslationConfig,
+    private l10nConfigService: L10nConfigService,
+  ) {
+    this.localeConfig.defaultLocale = this.l10nConfigService.getDefaultLocale();
+    this.translationConfig.providers = this.l10nConfigService.getTranslationProviders();
+    this.l10nLoader.load();
+  }
+}
 
 
 

@@ -17,6 +17,7 @@ import {SubsystemsService} from './services/subsystems.service';
 import {Subsystems, SubsystemItem} from './services/subsystems';
 import {SubsystemItemAction} from './subsystem/subsystem-item-action';
 import {SubsystemActionsService, SubsystemAction} from "./services/subsystem-actions.service";
+import {TranslationService} from 'angular-l10n';
 
 class State {
   static loading = 'loading';
@@ -38,7 +39,7 @@ const regexDrill  = /\s*drill\s*=\s*(\w+)/i;
 })
 export class SubsystemsRootComponent implements OnInit {
   scope: any; // ng1
-  rootBreadCrumb = 'Subsystem Types';
+  rootBreadCrumb: string;
   state = State.loading;
   errorMessage = '';
   breadcrumbs: string[] = [];
@@ -53,9 +54,12 @@ export class SubsystemsRootComponent implements OnInit {
 
   constructor(
     fb: FormBuilder,
+    private translation: TranslationService,
     private subsystemsService: SubsystemsService,
     private subsystemActionsService: SubsystemActionsService,
     private element: ElementRef) {
+    this.rootBreadCrumb = this.translation.translate('SubsystemTypes');
+    console.log(`this.rootBreadCrumb`, this.rootBreadCrumb);
     // this.scope = angular.element(this.element.nativeElement).scope();
     this.superSearchForm = fb.group({superSearchInput: ''});
     this.superSearchInput = this.superSearchForm.controls['superSearchInput'];
