@@ -12,12 +12,6 @@
 
 <nav *ngIf="state!='loading' && state!='error'" class="navbar navbar-default">
   <div class="navbar-header">
-    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarContent" aria-expanded="false">
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#">&nbsp;</a>
-  </div>
-  <div class="collapse navbar-collapse" id="navbarContent">
     <ul class="nav navbar-nav">
       <li class="active">
         <ol class="breadcrumb">
@@ -30,6 +24,12 @@
         </ol>
       </li>
     </ul>
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".search-content" aria-expanded="false">
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">&nbsp;</a>
+  </div>
+  <div class="collapse navbar-collapse search-content">
     <form [formGroup]="superSearchForm" (ngSubmit)="superSearch()" class="navbar-form navbar-right">
       <input [formControl]="superSearchInput"
           [class.super-search-error]="superSearchError" [title]="superSearchTitle"
