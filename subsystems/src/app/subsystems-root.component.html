@@ -33,7 +33,7 @@
     <form [formGroup]="superSearchForm" (ngSubmit)="superSearch()" class="navbar-form navbar-right">
       <input [formControl]="superSearchInput"
           [class.super-search-error]="superSearchError" [title]="superSearchTitle"
-          class="form-control mr-sm-2 super-search-input" type="text" placeholder="Search" i18n-placeholder="search placeholder|Placeholder for Seach input@@search-placeholder">
+          class="form-control mr-sm-2 super-search-input" type="text" placeholder="Search" i18n-placeholder="search placeholder|Placeholder for Search input@@search-placeholder">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit" i18n="button title|Title of Search button@@search-button-title">Search</button>
     </form>
   </div>
