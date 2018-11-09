@@ -53,10 +53,11 @@ import { TranslationModule, ISOCode, L10nLoader, LOCALE_CONFIG, TRANSLATION_CONF
   imports: [
     CommonModule,
     HttpModule,
-    TranslationModule.forChild({
+    //TranslationModule.forChild({
+    TranslationModule.forRoot({
       translation: {
         providers: [],
-        composedLanguage: [ISOCode.Language, ISOCode.Country],
+        composedLanguage: [ISOCode.Language, ISOCode.Country]
       }}
     ),
     FormsModule,

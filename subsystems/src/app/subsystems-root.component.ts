@@ -58,8 +58,6 @@ export class SubsystemsRootComponent implements OnInit {
     private subsystemsService: SubsystemsService,
     private subsystemActionsService: SubsystemActionsService,
     private element: ElementRef) {
-    this.rootBreadCrumb = this.translation.translate('SubsystemTypes');
-    console.log(`this.rootBreadCrumb`, this.rootBreadCrumb);
     // this.scope = angular.element(this.element.nativeElement).scope();
     this.superSearchForm = fb.group({superSearchInput: ''});
     this.superSearchInput = this.superSearchForm.controls['superSearchInput'];
@@ -72,6 +70,10 @@ export class SubsystemsRootComponent implements OnInit {
          (subsystems: Subsystems) => this.ready(subsystems),
          (e: any) => this.error(e)
        );
+       this.translation.translationChanged().subscribe(() => {
+        this.rootBreadCrumb = this.translation.translate('SubsystemTypes');
+       }
+    );
   }
 
   error(e: any) {
