@@ -28,6 +28,7 @@ import {SubsystemActionComponent} from './subsystem-action/subsystem-action.comp
 import {SubsystemActionsService} from './services/subsystem-actions.service';
 import {SubsystemActionTextComponent} from './subsystem-action-text/subsystem-action-text.component';
 import { TranslationModule, ISOCode, L10nLoader, LOCALE_CONFIG, TRANSLATION_CONFIG, LocaleConfig, TranslationConfig } from 'angular-l10n';
+import { Angular2L10nConfig, Angular2InjectionTokens } from 'pluginlib/inject-resources';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,6 @@ import { TranslationModule, ISOCode, L10nLoader, LOCALE_CONFIG, TRANSLATION_CONF
     SubsystemActionComponent
   ],
   providers: [
-    L10nConfigService,
     PluginService1,
     DiscoveryTableService,
     SubsystemsService,
@@ -53,7 +53,6 @@ import { TranslationModule, ISOCode, L10nLoader, LOCALE_CONFIG, TRANSLATION_CONF
   imports: [
     CommonModule,
     HttpModule,
-    //TranslationModule.forChild({
     TranslationModule.forRoot({
       translation: {
         providers: [],
@@ -70,12 +69,13 @@ import { TranslationModule, ISOCode, L10nLoader, LOCALE_CONFIG, TRANSLATION_CONF
 export class SubsystemsRootModule {
   constructor(
     private l10nLoader: L10nLoader,
+    @Inject(Angular2InjectionTokens.L10N_CONFIG) private l10nConfig: Angular2L10nConfig,
     @Inject(LOCALE_CONFIG) private localeConfig: LocaleConfig,
     @Inject(TRANSLATION_CONFIG) private translationConfig: TranslationConfig,
-    private l10nConfigService: L10nConfigService,
+
   ) {
-    this.localeConfig.defaultLocale = this.l10nConfigService.getDefaultLocale();
-    this.translationConfig.providers = this.l10nConfigService.getTranslationProviders();
+    this.localeConfig.defaultLocale = this.l10nConfig.defaultLocale;
+    this.translationConfig.providers = this.l10nConfig.providers;
     this.l10nLoader.load();
   }
 }
