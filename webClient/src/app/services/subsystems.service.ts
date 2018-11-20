@@ -20,7 +20,7 @@ import { Angular2InjectionTokens } from 'pluginlib/inject-resources';
 
 @Injectable()
 export class SubsystemsService extends XhrBase<Subsystems> {
-  private url: string = '/ZLUX/plugins/com.rs.zossystem.subsystems/services/data/zosDiscovery/naive/subsystems';
+  private url: string;
 
   constructor(public http: Http,
               @Inject(Angular2InjectionTokens.PLUGIN_DEFINITION) private pluginDefinition: ZLUX.ContainerPluginDefinition) {
