@@ -16,7 +16,6 @@ import {HttpModule} from '@angular/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 // Services
-import {L10nConfigService} from './services/l10n-config.service';
 import {PluginService1} from './services/plugin.service';
 import {SubsystemsService} from './services/subsystems.service';
 import {DiscoveryTableService} from './services/discovery-table.service';
