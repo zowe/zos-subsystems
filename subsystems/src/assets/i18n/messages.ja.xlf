@@ -7,24 +7,25 @@
 
         <note priority="1" from="description">Placeholder for Search input</note>
         <note priority="1" from="meaning">search placeholder</note>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/subsystems-root.component.ts</context><context context-type="linenumber">36</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/subsystem/subsystem.component.ts</context><context context-type="linenumber">16</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/subsystem-action/subsystem-action.component.ts</context><context context-type="linenumber">24</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/subsystems-root.component.ts</context><context context-type="linenumber">35</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/subsystem/subsystem.component.ts</context><context context-type="linenumber">16</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/subsystem-action/subsystem-action.component.ts</context><context context-type="linenumber">24</context></context-group></trans-unit>
       <trans-unit id="search-button-title" datatype="html">
         <source>Search</source><target state="new">検索</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/subsystems-root.component.ts</context>
-          <context context-type="linenumber">37</context>
-        </context-group>
+
         <note priority="1" from="description">Title of Search button</note>
         <note priority="1" from="meaning">button title</note>
-      </trans-unit><trans-unit id="subsystems-loading-message" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/subsystems-root.component.ts</context><context context-type="linenumber">36</context></context-group></trans-unit><trans-unit id="loading-message" datatype="html">
         <source>
-        Loading <x id="INTERPOLATION" equiv-text="{{rootBreadCrumb}}"/> ...
+        Loading...
       </source><target state="new">
-        Loading <x id="INTERPOLATION" equiv-text="{{rootBreadCrumb}}"/> ...
+        をロード中...
       </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/subsystems-root.component.ts</context>
-          <context context-type="linenumber">44</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/subsystem-action/subsystem-action.component.ts</context>
+          <context context-type="linenumber">15</context>
         </context-group>
         <note priority="1" from="description">Text of Loading message</note>
         <note priority="1" from="meaning">loading message</note>
@@ -90,18 +91,6 @@
         </context-group>
         <note priority="1" from="description">Header of Name column</note>
         <note priority="1" from="meaning">column-header</note>
-      </trans-unit><trans-unit id="subsystem-loading-message" datatype="html">
-        <source>
-      Loading <x id="INTERPOLATION" equiv-text="{{subsystemItemAction.subsystemName}}"/> > <x id="INTERPOLATION_1" equiv-text="{{subsystemItemAction.getItemName()}}"/> > <x id="INTERPOLATION_2" equiv-text="{{subsystemItemAction.action.display}}"/> ...
-    </source><target state="new">
-      Loading <x id="INTERPOLATION" equiv-text="{{subsystemItemAction.subsystemName}}"/> > <x id="INTERPOLATION_1" equiv-text="{{subsystemItemAction.getItemName()}}"/> > <x id="INTERPOLATION_2" equiv-text="{{subsystemItemAction.action.display}}"/> ...
-    </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/subsystem-action/subsystem-action.component.ts</context>
-          <context context-type="linenumber">15</context>
-        </context-group>
-        <note priority="1" from="description">Loading message</note>
-        <note priority="1" from="meaning">message</note>
       </trans-unit><trans-unit id="subsystem-types-text" datatype="html">
         <source>Subsystem Types</source><target state="new">サブシステム・タイプ</target>
         <context-group purpose="location">
