@@ -10,19 +10,23 @@
   Copyright Contributors to the Zowe Project.
 */
 
-import {Injectable} from '@angular/core';
+import {Injectable, Inject } from '@angular/core';
 import {Http, Response, Headers} from '@angular/http';
 import {Observable} from 'rxjs/Rx';
 
 import {Subsystems} from './subsystems';
 import {XhrBase} from './xhr-base';
+import { Angular2InjectionTokens } from 'pluginlib/inject-resources';
 
 @Injectable()
 export class SubsystemsService extends XhrBase<Subsystems> {
-  private url: string = '/ZLUX/plugins/com.rs.zossystem.subsystems/services/data/zosDiscovery/naive/subsystems';
+  private url: string;
 
-  constructor(public http: Http) {
+  constructor(public http: Http,
+              @Inject(Angular2InjectionTokens.PLUGIN_DEFINITION) private pluginDefinition: ZLUX.ContainerPluginDefinition) {
     super(http);
+    this.url = ZoweZLUX.uriBroker.pluginRESTUri(this.pluginDefinition.getBasePlugin(), "data", "/zosDiscovery/naive/subsystems");
+    
   }
 
   getAll(): Observable<Subsystems> {

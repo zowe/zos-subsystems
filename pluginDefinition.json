@@ -1,7 +1,7 @@
 {
-  "identifier": "com.rs.zossystem.subsystems",
+  "identifier": "org.zowe.zossystem.subsystems",
   "apiVersion": "1.0.0",
-  "pluginVersion": "0.9.0",
+  "pluginVersion": "0.9.4",
   "pluginType": "application",
   "webContent": {
     "framework": "angular2",
@@ -20,6 +20,7 @@
       "y": 50
     }
   },
+  "license": "EPL-2.0",  
   "dataServices": [
     {
       "type": "service",
