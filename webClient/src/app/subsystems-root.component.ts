@@ -4,9 +4,9 @@
   This program and the accompanying materials are
   made available under the terms of the Eclipse Public License v2.0 which accompanies
   this distribution, and is available at https://www.eclipse.org/legal/epl-v20.html
-  
+
   SPDX-License-Identifier: EPL-2.0
-  
+
   Copyright Contributors to the Zowe Project.
 */
 
@@ -17,6 +17,7 @@ import {SubsystemsService} from './services/subsystems.service';
 import {Subsystems, SubsystemItem} from './services/subsystems';
 import {SubsystemItemAction} from './subsystem/subsystem-item-action';
 import {SubsystemActionsService, SubsystemAction} from "./services/subsystem-actions.service";
+import {TranslationService} from 'angular-l10n';
 
 class State {
   static loading = 'loading';
@@ -38,7 +39,7 @@ const regexDrill  = /\s*drill\s*=\s*(\w+)/i;
 })
 export class SubsystemsRootComponent implements OnInit {
   scope: any; // ng1
-  rootBreadCrumb = 'Subsystem Types';
+  rootBreadCrumb: string;
   state = State.loading;
   errorMessage = '';
   breadcrumbs: string[] = [];
@@ -53,6 +54,7 @@ export class SubsystemsRootComponent implements OnInit {
 
   constructor(
     fb: FormBuilder,
+    private translation: TranslationService,
     private subsystemsService: SubsystemsService,
     private subsystemActionsService: SubsystemActionsService,
     private element: ElementRef) {
@@ -68,6 +70,10 @@ export class SubsystemsRootComponent implements OnInit {
          (subsystems: Subsystems) => this.ready(subsystems),
          (e: any) => this.error(e)
        );
+       this.translation.translationChanged().subscribe(() => {
+        this.rootBreadCrumb = this.translation.translate('SubsystemTypes');
+       }
+    );
   }
 
   error(e: any) {
@@ -113,9 +119,9 @@ export class SubsystemsRootComponent implements OnInit {
       actionThing
     );
   }
-  
+
   /*
-    This is dead untested code for some drill/search that we don't understand 
+    This is dead untested code for some drill/search that we don't understand
   setSubsystemName(subsystemName: string, filter: string) {
     this.state = State.subsystem;
     this.breadcrumbs.push(subsystemName);
@@ -226,9 +232,9 @@ export class SubsystemsRootComponent implements OnInit {
   This program and the accompanying materials are
   made available under the terms of the Eclipse Public License v2.0 which accompanies
   this distribution, and is available at https://www.eclipse.org/legal/epl-v20.html
-  
+
   SPDX-License-Identifier: EPL-2.0
-  
+
   Copyright Contributors to the Zowe Project.
 */
 

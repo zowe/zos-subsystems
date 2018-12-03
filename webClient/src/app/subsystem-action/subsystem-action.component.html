@@ -1,19 +1,19 @@
 
 
-<!-- 
+<!--
   This program and the accompanying materials are
   made available under the terms of the Eclipse Public License v2.0 which accompanies
   this distribution, and is available at https://www.eclipse.org/legal/epl-v20.html
-  
+
   SPDX-License-Identifier: EPL-2.0
-  
+
   Copyright Contributors to the Zowe Project.
 -->
 
 <div class="row" *ngIf="state=='loading' || state=='error'" >
   <div class="col-sm-12 state-loading-error">
-    <span *ngIf="state=='loading'">
-      Loading {{subsystemItemAction.subsystemName}} > {{subsystemItemAction.getItemName()}} > {{subsystemItemAction.action.display}} ...
+    <span *ngIf="state=='loading'" i18n="message|Loading message@@loading-message">
+      Loading...
     </span>
     <span *ngIf="state=='error'" class="state-error">{{errorMessage}}</span>
   </div>
@@ -21,12 +21,9 @@
 <div *ngIf="state=='ready'" class="row search-row">
   <div class="col-sm-12">
     <form [formGroup]="searchForm" class="form-inline my-2 my-lg-0">
-      <input [formControl]="searchInput" class="form-control mr-sm-2" type="text" placeholder="Search">
-      <span *ngIf="searchRows.length!==1" class="search-count">
-        <b>{{searchRows.length}} </b>rows
-      </span>
-      <span *ngIf="searchRows.length===1" class="search-count">
-        <b>{{searchRows.length}} </b>row
+      <input [formControl]="searchInput" class="form-control mr-sm-2" type="text" placeholder="Search" i18n-placeholder="search placeholder|Placeholder for Search input@@search-placeholder">
+      <span class="search-count" i18n="message|Message that shows row count@@row-count-message">
+        {searchRows.length, plural, =0 {no rows} =1 {one row} other {{{searchRows.length}} rows}}
       </span>
     </form>
   </div>
@@ -62,13 +59,13 @@
 </div>
 
 
-<!-- 
+<!--
   This program and the accompanying materials are
   made available under the terms of the Eclipse Public License v2.0 which accompanies
   this distribution, and is available at https://www.eclipse.org/legal/epl-v20.html
-  
+
   SPDX-License-Identifier: EPL-2.0
-  
+
   Copyright Contributors to the Zowe Project.
 -->
 
