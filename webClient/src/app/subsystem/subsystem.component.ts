@@ -10,7 +10,7 @@
   Copyright Contributors to the Zowe Project.
 */
 
-import {Component, OnChanges, SimpleChanges, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnChanges, SimpleChanges, Input, Output, EventEmitter, Inject} from '@angular/core';
 import {FormBuilder, FormGroup, AbstractControl} from '@angular/forms';
 
 import {SubsystemItem} from '../services/subsystems';
@@ -18,6 +18,7 @@ import {SubsystemItemAction} from './subsystem-item-action';
 import {SubsystemActionsService, SubsystemAction} from '../services/subsystem-actions.service';
 import {DiscoveryTableService, GetOptions} from "../services/discovery-table.service";
 import {DiscoveryTable} from "../meta-data/discovery-table";
+import { Angular2InjectionTokens } from 'pluginlib/inject-resources';
 
 @Component({
   selector: 'ng2-subsystem',
@@ -40,7 +41,8 @@ export class SubsystemComponent implements OnChanges {
   constructor(
     fb: FormBuilder,
     private subsystemActionsService: SubsystemActionsService,
-    private discoveryTableService: DiscoveryTableService) {
+    private discoveryTableService: DiscoveryTableService,
+    @Inject(Angular2InjectionTokens.LOGGER) private log: ZLUX.ComponentLogger) {
     this.searchForm = fb.group({searchInput: ''});
     this.searchInput = this.searchForm.controls['searchInput'];
     this.searchInput.valueChanges.subscribe((value: string) => this.search(value));
@@ -61,7 +63,7 @@ export class SubsystemComponent implements OnChanges {
 
   hackCounts() {
     // TODO HACK
-    console.log('TODO: subsystem.component.ts counts');
+    this.log.warn('TODO: subsystem.component.ts counts');
 
     this.counts = new Array<Array<number>>(this.subsystemInput.subsystemItems.length);
 
@@ -76,14 +78,14 @@ export class SubsystemComponent implements OnChanges {
       this.discoveryTableService.getAll(getOptions)
         .subscribe(
           (discoveryTable: DiscoveryTable) => this.hackTableCounts(discoveryTable, actionIndex),
-          (e: any) => console.log('error', e)
+          (e: any) => this.log.warn('error', e)
         );
     });
   }
 
   hackTableCounts(discoveryTable: DiscoveryTable, actionIndex: number) {
     let rows = discoveryTable.rows;
-    console.log("discoveryTable.metaData="+JSON.stringify(discoveryTable.metaData));
+    this.log.debug("discoveryTable.metaData=",discoveryTable.metaData);
     let name = discoveryTable.metaData.columnMetaData[0].columnIdentifier;
     let counts = this.counts;
 
