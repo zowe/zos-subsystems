@@ -23,7 +23,8 @@ export class SubsystemsService extends XhrBase<Subsystems> {
   private url: string;
 
   constructor(public http: Http,
-              @Inject(Angular2InjectionTokens.PLUGIN_DEFINITION) private pluginDefinition: ZLUX.ContainerPluginDefinition) {
+              @Inject(Angular2InjectionTokens.PLUGIN_DEFINITION) private pluginDefinition: ZLUX.ContainerPluginDefinition,
+              @Inject(Angular2InjectionTokens.LOGGER) private log: ZLUX.ComponentLogger) {
     super(http);
     this.url = ZoweZLUX.uriBroker.pluginRESTUri(this.pluginDefinition.getBasePlugin(), "data", "/zosDiscovery/naive/subsystems");
     
@@ -43,7 +44,7 @@ export class SubsystemsService extends XhrBase<Subsystems> {
    * TODO HACK
    */
   private hackFilter(subsystems: Subsystems): Subsystems {
-    console.log('TODO: subsystems.service.ts dupe filtering');
+    this.log.warn('TODO: subsystems.service.ts dupe filtering');
 
     Object.keys(subsystems).forEach((sub: string) => {
       let rows = subsystems[sub];

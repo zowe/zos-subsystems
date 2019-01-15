@@ -10,12 +10,13 @@
   Copyright Contributors to the Zowe Project.
 */
 
-import {Component, OnChanges, SimpleChanges, Input} from '@angular/core';
+import {Component, OnChanges, SimpleChanges, Input, Inject} from '@angular/core';
 import {FormBuilder, FormGroup, AbstractControl} from '@angular/forms';
 
 import {SubsystemItemAction} from '../subsystem/subsystem-item-action';
 import {DiscoveryTableService, GetOptions} from '../services/discovery-table.service';
 import {DiscoveryTable, ColumnMetaData} from '../meta-data/discovery-table';
+import { Angular2InjectionTokens } from 'pluginlib/inject-resources';
 
 class State {
   static loading = 'loading';
@@ -42,7 +43,9 @@ export class SubsystemActionComponent implements OnChanges {
   searchForm: FormGroup;
   searchInput: AbstractControl;
 
-  constructor(fb: FormBuilder, private discoveryTableService: DiscoveryTableService) {
+  constructor(fb: FormBuilder, 
+              private discoveryTableService: DiscoveryTableService,
+              @Inject(Angular2InjectionTokens.LOGGER) private log: ZLUX.ComponentLogger) {
     this.searchForm = fb.group({searchInput: ''});
     this.searchInput = this.searchForm.controls['searchInput'];
     this.searchInput.valueChanges.subscribe((value: string) => this.search(value));
@@ -66,7 +69,7 @@ export class SubsystemActionComponent implements OnChanges {
     this.cols = this.discoveryTable.metaData.columnMetaData;
 
     // TODO HACK
-    console.log('TODO: subststem-action.component.ts#nOinit filtering');
+    this.log.warn('TODO: subsystem-action.component.ts#nOinit filtering');
     if (this.discoveryTable.rows.length > 0) {
       let name = this.cols[0].columnIdentifier;
       let subsystemName = this.subsystemItemAction.getItemName();
@@ -99,7 +102,7 @@ export class SubsystemActionComponent implements OnChanges {
   setAction(row: any) {
     let dataset = row['dsn'].toString().trim();
 
-    console.log('dataset', dataset);
+    this.log.debug('dataset=', dataset);
 
     this.scope.$emit('virtualDesktop.runApp','com.rs.dataeditor', {
       vsamDataset: dataset

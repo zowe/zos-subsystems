@@ -18,6 +18,7 @@ import {Subsystems, SubsystemItem} from './services/subsystems';
 import {SubsystemItemAction} from './subsystem/subsystem-item-action';
 import {SubsystemActionsService, SubsystemAction} from "./services/subsystem-actions.service";
 import {TranslationService} from 'angular-l10n';
+import { Angular2InjectionTokens } from 'pluginlib/inject-resources';
 
 class State {
   static loading = 'loading';
@@ -57,7 +58,8 @@ export class SubsystemsRootComponent implements OnInit {
     private translation: TranslationService,
     private subsystemsService: SubsystemsService,
     private subsystemActionsService: SubsystemActionsService,
-    private element: ElementRef) {
+    private element: ElementRef,
+    @Inject(Angular2InjectionTokens.LOGGER) private log: ZLUX.ComponentLogger) {
     // this.scope = angular.element(this.element.nativeElement).scope();
     this.superSearchForm = fb.group({superSearchInput: ''});
     this.superSearchInput = this.superSearchForm.controls['superSearchInput'];
@@ -107,11 +109,11 @@ export class SubsystemsRootComponent implements OnInit {
   }
 
   setSubsystemName(subsystemName: string, filter: string){
-     console.log("JOE.setSubsystemName="+subsystemName+" filt="+filter);
+     this.log.debug("setSubsystemName="+subsystemName+" filt="+filter);
      this.state = State.subsystem;
      this.breadcrumbs.push(subsystemName);
      let actionThing:any = this.subsystemActionsService.getActions(subsystemName);
-     console.log("JOE.actionThing="+actionThing);
+     this.log.debug("actionThing="+actionThing);
      this.subsystemItemAction = new SubsystemItemAction(
       subsystemName,
       filter,
