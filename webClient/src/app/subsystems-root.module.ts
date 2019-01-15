@@ -16,7 +16,6 @@ import {HttpModule} from '@angular/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 // Services
-import {PluginService1} from './services/plugin.service';
 import {SubsystemsService} from './services/subsystems.service';
 import {DiscoveryTableService} from './services/discovery-table.service';
 // Components
@@ -44,7 +43,6 @@ import { Angular2L10nConfig, Angular2InjectionTokens } from 'pluginlib/inject-re
     SubsystemActionComponent
   ],
   providers: [
-    PluginService1,
     DiscoveryTableService,
     SubsystemsService,
     SubsystemActionsService
