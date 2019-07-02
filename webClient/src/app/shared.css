@@ -10,6 +10,8 @@
   Copyright Contributors to the Zowe Project.
 */
 
+@import url('~bootstrap/dist/css/bootstrap.min.css');
+
 a, a:hover {
   color: #337ab7;
 }
