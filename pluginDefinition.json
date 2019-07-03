@@ -1,7 +1,7 @@
 {
   "identifier": "org.zowe.zossystem.subsystems",
   "apiVersion": "1.0.0",
-  "pluginVersion": "0.9.4",
+  "pluginVersion": "0.9.5",
   "pluginType": "application",
   "webContent": {
     "framework": "angular2",
@@ -15,9 +15,7 @@
     "isSingleWindowApp": true,
     "defaultWindowStyle": {
       "width": 950,
-      "height": 700,
-      "x": 200,
-      "y": 50
+      "height": 700
     }
   },
   "license": "EPL-2.0",  

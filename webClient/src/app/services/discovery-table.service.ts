@@ -31,7 +31,7 @@ export class DiscoveryTableService extends XhrBase<DiscoveryTable> {
     public http: Http,
     @Inject(Angular2InjectionTokens.PLUGIN_DEFINITION) private pluginDefinition: ZLUX.ContainerPluginDefinition) {
     super(http);
-    this.url = ZoweZLUX.uriBroker.pluginRESTUri(pluginDefinition.getBasePlugin(), "data", "/zosDiscovery/naive");
+    this.url = ZoweZLUX.uriBroker.pluginRESTUri(pluginDefinition.getBasePlugin(), "data", "zosDiscovery/simple");
   }
 
   getAll(getOptions: GetOptions): Observable<DiscoveryTable> {

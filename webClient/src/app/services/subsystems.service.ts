@@ -26,7 +26,7 @@ export class SubsystemsService extends XhrBase<Subsystems> {
               @Inject(Angular2InjectionTokens.PLUGIN_DEFINITION) private pluginDefinition: ZLUX.ContainerPluginDefinition,
               @Inject(Angular2InjectionTokens.LOGGER) private log: ZLUX.ComponentLogger) {
     super(http);
-    this.url = ZoweZLUX.uriBroker.pluginRESTUri(this.pluginDefinition.getBasePlugin(), "data", "/zosDiscovery/naive/subsystems");
+    this.url = ZoweZLUX.uriBroker.pluginRESTUri(this.pluginDefinition.getBasePlugin(), "data", "zosDiscovery/simple/subsystems");
     
   }
 
