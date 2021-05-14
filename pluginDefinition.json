@@ -1,7 +1,7 @@
 {
   "identifier": "org.zowe.zossystem.subsystems",
   "apiVersion": "1.0.0",
-  "pluginVersion": "0.9.5",
+  "pluginVersion": "0.9.6",
   "pluginType": "application",
   "webContent": {
     "framework": "angular2",
