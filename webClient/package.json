@@ -25,7 +25,7 @@
     "codelyzer": "~4.4.2",
     "core-js": "~2.5.7",
     "copy-webpack-plugin": "~4.5.2",
-    "css-loader": "~1.0.0",
+    "css-loader": "~6.8.1",
     "exports-loader": "~0.7.0",
     "file-loader": "~1.1.11",
     "html-loader": "~0.5.5",
